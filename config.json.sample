@@ -1,0 +1,13 @@
+{
+    "cloudant": {
+            host : "xxxxx-bluemix.cloudant.com";
+            port : 443;
+            user : "xxxx-bluemix";
+            password : "xxxx";
+            url : "https://xxxx-bluemix:xxxf@xxxx-bluemix.cloudant.com";
+    },
+    "protected": {
+        user: "username",
+        password: "password"
+    } 
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>ANZ Hackathon 2016 - Resources</title>
+  <link rel="stylesheet" type="text/css" href="components/semantic-ui/dist/semantic.min.css">
+  <link rel="stylesheet" href="components/toastr/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/site.css">
+</head>
+<body ng-app="hulkme" ng-controller="RootCtrl as rCtrl">
+    
+    <hulk-me-navbar></hulk-me-navbar>
+
+    <div class="ui main twelve container">
+        <div ui-view></div>
+    </div>
+
+    <hulk-me-block-ui></hulk-me-block-ui>
+    
+    <script src="components/jquery/dist/jquery.js"></script>
+    <script src="components/semantic-ui/dist/semantic.min.js"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/toastr/toastr.min.js"></script>
+    <script src="components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+    <script src="components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="components/angular-messages/angular-messages.min.js"></script>
+    <script src="components/moment/min/moment.min.js"></script>
+    
+    <script src="app.js"></script>
+    
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/services.js"></script>    
+    
+    <script src="admin/route.js"></script>
+    <script src="admin/js/controllers.js"></script>
+    <script src="admin/js/directives.js"></script>
+    <script src="admin/js/services.js"></script>    
+    
+    <script src="home/route.js"></script>
+    <script src="home/js/controllers.js"></script>
+    <script src="home/js/directives.js"></script>
+    <script src="home/js/services.js"></script>
+</body>
+</html>

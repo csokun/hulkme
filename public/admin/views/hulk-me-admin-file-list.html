@@ -1,0 +1,36 @@
+<table class="ui blue striped table">
+    <thead>
+        <tr>
+            <th style='width: 240px;'>Filename</th>
+            <th>Description</th>
+            <th style='width: 100px;'>Size</th>
+            <th style='width: 60px;'>Published</th>
+            <th style='min-width: 240px; width: 280px;'>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="f in files" id="file_{{f.fileId}}">
+            <td><a href="/media/{{f.fileId}}" target="_blank">{{f.fileName}}</a></td>
+            <td>
+                <div class="ui form field">
+                    <input type="text" ng-model="f.description">
+                </div>
+            </td>
+            <td>{{f.fileSize | humanizer}}</td>
+            <td><input type="checkbox" class="ui checkbox" ng-model="f.published" ng-checked="f.published" aria-label="Published"></td>
+            <td>
+                <div style="float: right;">
+                <button ng-click="updateFile(f)" class="ui button green"><i class="icon save"></i>Update</button>
+                <button ng-click="deleteFile(f)" class="ui button red"><i class="icon trash"></i>Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script type="text/javascript">
+$(function() {
+$('.ui.checkbox')
+  .checkbox();
+})
+</script>

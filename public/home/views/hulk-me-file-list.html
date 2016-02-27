@@ -1,0 +1,20 @@
+<table class="ui blue celled striped table">
+    <thead>
+        <tr>
+            <th style='width: 300px;'>Filename</th>
+            <th>Description</th>
+            <th style='width: 160px;'>Size</th>
+            <th style='width: 160px;'></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="f in files">
+            <td>{{f.fileName}}</td>
+            <td>{{f.description}}</td>
+            <td>{{f.fileSize | humanizer}}</td>
+            <td style="text-align: center;">
+                <a class="ui button green" href="/media/{{f.fileId}}" target="_blank"><i class='download icon'></i>Download</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

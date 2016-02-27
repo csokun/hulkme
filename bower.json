@@ -1,0 +1,20 @@
+{
+  "name": "Hulkme",
+  "description": "Simple file sharing build with nodejs + cloudant",
+  "version": "0.1.0",
+  "homepage": "",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "angular": "1.4.x",
+    "angular-messages": "1.4.x",
+    "angular-ui-router": "~0.2.15",
+    "angular-cookies": "~1.4.x",
+    "semantic-ui": "~2.1.8",
+    "toastr": "~2.1.1",
+    "ng-file-upload": "~10.0.2",
+    "angular-ui-sortable": "~0.13.4",
+    "underscore": "~1.8.3",
+    "moment": "^2.11.2"
+  }
+}
