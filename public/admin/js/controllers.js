@@ -24,10 +24,12 @@ angular.module('hulkme.admin.controllers', [])
     };
     
     $scope.deleteFile = function(f) {
-        AdminFileService.deleteFile (f)
-            .success(function(result) {
-                $('#file_' + f.fileId).remove();
-            });
+        AdminFileService.confirmDelete(f, function() {
+            AdminFileService.deleteFile (f)
+                .success(function(result) {
+                    $('#file_' + f.fileId).remove();
+                });
+        });
     };
 
     $scope.updateFile = function (f) {

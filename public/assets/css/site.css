@@ -16,3 +16,9 @@
   }
   
   #blockUI { z-index: 10000; }
+  
+  .ui.modal>.close {
+    top: 1.0535rem;
+    right: 1rem;
+    color: rgba(0,0,0,.87);
+}

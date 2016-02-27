@@ -1,0 +1,13 @@
+<div class='ui modal small' id='deleteConfirmModal'>
+	<i class="close icon"></i>
+	<div class='header'>Confirmation</div>
+	<div class='ui content'>
+		<p>Do you really want to delete the following file?</p>
+        <ul>
+            <li><u>{{file.fileName}}</u> ({{file.fileSize | humanizer}})</li>
+        </ul>
+	</div>
+	<div class='actions'>
+		<div class="ui approve button red"><i class='trash icon'></i>Delete</div>
+	</div>
+</div>

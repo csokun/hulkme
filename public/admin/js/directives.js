@@ -11,13 +11,25 @@ angular.module('hulkme.admin.directives', [])
     }
 })
 
-.directive('hulkMeEditFileModal', function(){
+.directive('hulkMeConfirmDeleteModal', ['$rootScope', function($rootScope){
     return {
         restrict: 'E',
-        templateUrl: 'admin/views/hulk-me-edit-file-modal.html',
-        link: function (scope, element, attr) {
-            
+        templateUrl: 'admin/views/hulk-me-confirm-delete-modal.html',
+        link: function(scope) {
+            console.log('loaded confirm');
+
+            $rootScope.$on('delete:confirm', function (event, data) {
+                scope.file = data.file;
+                // activate modal
+                $('#deleteConfirmModal').modal({
+                    onApprove: function() {
+                        data.callback();
+                    }
+                });
+
+                $('#deleteConfirmModal').modal('show');
+            });
         }
     }
-})
+}])
 ;

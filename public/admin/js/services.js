@@ -14,7 +14,16 @@ angular.module('hulkme.admin.services', [])
     };
 }])
 
-.service('AdminFileService', ['$http', 'toastr', function($http, toastr) {
+.service('AdminFileService', ['$http', 'toastr', '$rootScope',
+function($http, toastr, $rootScope) {
+    
+    this.confirmDelete = function(f, callback) {
+      var data = {
+        file: f,
+        "callback": callback
+      };
+      $rootScope.$broadcast('delete:confirm', data);
+    };
     
     this.getFiles = function () {
         return $http.get('/api/files')
