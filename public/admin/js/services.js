@@ -62,6 +62,9 @@ function($http, toastr, $rootScope) {
         return $http.post('/api/file/' + f.fileId, angular.toJson(payload), 
             {headers: {'Content-Type': 'application/json'}})
             .success(function (result) {
+                // copy new value to shawdow properties
+                f._description = f.description;
+                f._published = f.published;
                 toastr.success(result.message);
             }).error(function (err) {
                 toastr.error(err.message);
