@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "Simple file sharing build with nodejs + cloudant",
   "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "prestart": "npm install",
     "start": "node app.js"
   },
   "dependencies": {
