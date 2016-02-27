@@ -28,6 +28,11 @@ function($http, toastr, $rootScope) {
     this.getFiles = function () {
         return $http.get('/api/files')
             .success(function(files) {
+                // to support dirty check ;)
+                files.forEach(function(f) {
+                   f._description = f.description;
+                   f._published = f.published; 
+                });
                 return files;
             }).error(function(err) {
                 toastr.error(err.message);

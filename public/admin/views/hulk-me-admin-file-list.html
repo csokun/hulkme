@@ -20,7 +20,7 @@
             <td><input type="checkbox" class="ui checkbox" ng-model="f.published" ng-checked="f.published" aria-label="Published"></td>
             <td>
                 <div style="float: right;">
-                <button ng-click="updateFile(f)" class="ui button green"><i class="icon save"></i>Update</button>
+                <button ng-click="updateFile(f)" class="ui button green" ng-class="isDirty(f)"><i class="icon save"></i>Update</button>
                 <button ng-click="deleteFile(f)" class="ui button red"><i class="icon trash"></i>Delete</button>
                 </div>
             </td>

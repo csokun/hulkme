@@ -31,7 +31,11 @@ angular.module('hulkme.admin.controllers', [])
                 });
         });
     };
-
+    
+    $scope.isDirty = function (f) {
+        return (f._description != f.description || f._published != f.published) ? "": "disabled";    
+    };
+    
     $scope.updateFile = function (f) {
         AdminFileService.updateFile (f);
     };
