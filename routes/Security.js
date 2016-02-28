@@ -3,6 +3,7 @@
 var express = require('express'), 
     jwt = require('express-jwt'),
     cfenv = require('cfenv'),
+    appEnv = cfenv.getAppEnv(),
     router = express.Router();
 
 // router.get('/auth', jwt({secret: 'shhhhhhared-secret'}), function(req, res) {
@@ -11,7 +12,7 @@ var express = require('express'),
 //   });
 
 router.get('/secret', function (req, res, next) {
-    res.send({secret: cfenv.getEnvVar('secret') });
+    res.send({secret: appEnv.getEnvVar('secret') });
     next();
 });
 
