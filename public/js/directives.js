@@ -2,7 +2,7 @@
 
 angular.module('hulkme.directives', [])
 
-.directive('hulkMeNavbar', ['$rootScope', 'jwt', function($rootScope, jwt) {
+.directive('hulkMeNavbar', ['$rootScope', 'jwt', '$state', function($rootScope, jwt, $state) {
     return {
         restrict: 'E',
         templateUrl: 'views/hulk-me-navbar.html',
@@ -16,6 +16,7 @@ angular.module('hulkme.directives', [])
             
             scope.logout = function () {
                 jwt.logout();
+                $state.go('home.index');
             }
             
             scope.login = function () {

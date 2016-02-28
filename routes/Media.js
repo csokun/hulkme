@@ -9,7 +9,12 @@ var getFile = function (req, res, next){
        if (!err) {
             var url = baseUrl + "/" + doc._id + "/" + doc.fileName;
             var request = require('request');
-            request.get(url).pipe(res);
+            request.get(url)
+            .on('response', function(response) {
+                response.headers['content-type'] = doc.fileType;
+                response.headers['content-disposition'] = "attachment;  filename=" + doc.fileName;
+            })
+            .pipe(res);
         } else {
             res.status(404).send({message: 'File not found!'});
         }

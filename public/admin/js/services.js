@@ -47,6 +47,8 @@ function($http, toastr, $rootScope) {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         }).success(function (data) {
+            data._description = data.description;
+            data._published = data.published;
             return data;
         }).error(function(err) {
             toastr.error('Oop! something went wrong. ' + (err.message === undefined ? err: err.message));
