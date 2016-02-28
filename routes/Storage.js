@@ -14,7 +14,7 @@ var express = require('express'),
     salt = appEnv.getEnvVar('salt') || 'W%GN]e(e$e#{.@|of-01zDRjs+9[DD-6z#A%N7D+Gv]9_kLq-P.Yr[]yQ.cr3/li';
     
 var uploadFile = function (req, res, next) {
-    if (!req.user.admin) return res.sendStatus(401);
+    if (!req.user) return res.sendStatus(401);
     
     var file = req.files.file;
     var rec = {
@@ -69,7 +69,7 @@ var getFile = function (req, res, next) {
 };
 
 var deleteFile = function (req, res, next) {
-    if (!req.user.admin) return res.sendStatus(401);
+    if (!req.user) return res.sendStatus(401);
     var id = req.params.fileId;	
     console.log("--> [DEL] #" + id);
     
@@ -95,8 +95,6 @@ var deleteFile = function (req, res, next) {
 var getFiles = function (req, response, next) { 
 	var docList = [];
 	var i = 0;
-    
-    if (req.published === undefined && !req.user) return response.sendStatus(401);
     
 	db.list(function(err, body) {
 		if (!err) {
@@ -162,7 +160,7 @@ var published = function (req, res, next) {
 };
 
 var updateFile = function (req, res, next) {
-    if (!req.user.admin) return res.sendStatus(401);
+    if (!req.user) return res.sendStatus(401);
     
     var id = req.params.fileId;	
     console.log("--> [UPDATE] #" + id);

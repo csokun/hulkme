@@ -4,7 +4,7 @@ angular.module('hulkme.admin.controllers', [])
 
 .controller('AdminHomeCtrl', ['$scope', 'AdminFileService', 'AuthService',
  function($scope, AdminFileService, AuthService) {
-    if (!AuthService.redirectIfNotLoggedIn()) return;
+    if (AuthService.redirectIfNotLoggedIn()) return;
 
     AdminFileService.getFiles().success(
         function(files) {
