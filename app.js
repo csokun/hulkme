@@ -29,6 +29,12 @@ if ('development' == app.get('env')) {
 	app.use(errorHandler());
 }
 
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.send(401, 'invalid token...');
+  }
+});
+
 app.use('/api', storage);
 app.use('/media', media);
 app.use('/auth', security);
@@ -41,3 +47,8 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
+
+process.on('uncaughtException', function(err) {
+    // handle the error safely
+    console.log(err);
+})

@@ -2,27 +2,30 @@
 
 angular.module('hulkme.directives', [])
 
-.directive('hulkMeNavbar', ['$rootScope', function($rootScope) {
+.directive('hulkMeNavbar', ['$rootScope', 'jwt', function($rootScope, jwt) {
     return {
         restrict: 'E',
         templateUrl: 'views/hulk-me-navbar.html',
         scope: {},
         link: function(scope, element, attr) {
             $rootScope.$watch('loggedIn', function(n, o) {
-                console.log(n, o);
                 scope.isLoggedIn = n;
             });
-            
+
             scope.isLoggedIn = false;
             
             scope.logout = function () {
-                console.log('logout');
-                $rootScope.loggedIn = false;
+                jwt.logout();
             }
             
             scope.login = function () {
                 console.log('login');
-                $rootScope.loggedIn = true;
+                var data = {
+                    callback: function (key) {
+                        jwt.login(key);
+                    }
+                };
+                $rootScope.$broadcast('login:clicked', data);
             }
             
         }
@@ -55,4 +58,25 @@ angular.module('hulkme.directives', [])
   };
 })
 
+.directive('hulkMeLoginModal', ['$rootScope', function($rootScope) {
+    return {
+        restrict: 'E',
+        templateUrl: 'views/hulk-me-login-modal.html',
+        link: function(scope, element, att) {
+            $rootScope.$on('login:clicked', function (event, data) {
+                $('#loginModal').modal({closable: false,
+                    onApprove: function() {
+                        if(!$('form[name="loginform"]').form('validate form')) return;
+                        var key = $('form[name="loginform"] input[name="passphrase"]').val();
+                        data.callback(key);
+                    }
+                });
+                
+                $('#loginModal form').removeClass('error');
+                $('form[name="loginform"]').form('clear');
+                $('#loginModal').modal('show');
+            });
+        }
+    }
+}])
 ;

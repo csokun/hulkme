@@ -5,8 +5,8 @@ angular.module('hulkme.admin.services', [])
 .factory('AuthService', ['$cookies', '$state', function($cookies, $state) {
     return {
         redirectIfNotLoggedIn: function () {
-            if ($cookies.getObject('user') === undefined) {
-                $state.go('admin.login');
+            if ($cookies.getObject('auth') === undefined) {
+                $state.go('home.index');
                 return true;
             }
             return false;
@@ -35,7 +35,7 @@ function($http, toastr, $rootScope) {
                 });
                 return files;
             }).error(function(err) {
-                toastr.error(err.message);
+                toastr.error('Oop! something went wrong. ' + (err.message === undefined ? err: err.message));
             });
     };
     
@@ -49,7 +49,7 @@ function($http, toastr, $rootScope) {
         }).success(function (data) {
             return data;
         }).error(function(err) {
-            toastr.error(err.message);
+            toastr.error('Oop! something went wrong. ' + (err.message === undefined ? err: err.message));
         });  
     };
     
@@ -67,7 +67,7 @@ function($http, toastr, $rootScope) {
                 f._published = f.published;
                 toastr.success(result.message);
             }).error(function (err) {
-                toastr.error(err.message);
+                toastr.error('Oop! something went wrong. ' + (err.message === undefined ? err: err.message));
             });
     };
     
@@ -76,7 +76,7 @@ function($http, toastr, $rootScope) {
             .success(function(result) {
                 return result;
             }).error(function(err) {
-                toastr.error(err.message);
+                toastr.error('Oop! something went wrong. ' + (err.message === undefined ? err: err.message));
             });
     }
     

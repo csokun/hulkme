@@ -2,7 +2,8 @@
 
 angular.module('hulkme.controllers', [])
 
-.controller('RootCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+.controller('RootCtrl', ['$scope', '$rootScope', '$cookies', '$http',
+function($scope, $rootScope, $cookies, $http) {
     
     $rootScope.openModal = function(modalName, data) {
         while(jQuery('.modal.'+modalName).length > 1) {
@@ -19,12 +20,13 @@ angular.module('hulkme.controllers', [])
         $rootScope.$broadcast('modal:'+ modalName +':opened', data);
     };
     
-    // if(user != undefined) {
-    //     $rootScope.loggedIn = true
-    //     
-    //     var authToken = authr.getToken();
-    //     $http.defaults.headers.common['Authorization'] = "Token " + user['userId'] + ":" + authToken;
-    // }
+    var auth = $cookies.getObject('auth');
+    if(auth != undefined) {
+        $rootScope.loggedIn = true
+        
+        $http.defaults.headers.common['Authorization'] = "Bearer " + auth.token;
+    };
+    
 }])
 ;
 

@@ -1,0 +1,24 @@
+<div class='ui modal small' id="loginModal" style="width: 460px;">
+	<i class="close icon"></i>
+	<div class='header'>Login</div>
+	<div class='ui content'>
+        <form name="loginform" class="ui form">
+            <div class="field">
+                <label>Passphrase</label>
+                <input type="password" name="passphrase">
+            </div>
+        </form>
+	</div>
+	<div class='actions'>
+		<div class="ui approve button blue"><i class='user icon'></i>Login</div>
+	</div>
+</div>
+<script>
+    $(function() {
+        $('form[name="loginform"]').form({
+           fields: {
+               passphrase: 'empty'
+           } 
+        });
+    });
+</script>
