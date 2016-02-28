@@ -22,3 +22,11 @@
     right: 1rem;
     color: rgba(0,0,0,.87);
 }
+
+a.ng-binding, a[ng-click] {
+    cursor: pointer;
+}
+
+/*.ui.menu .item>img:not(.ui) {
+    width: 5em !important;
+}*/

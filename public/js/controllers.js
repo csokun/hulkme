@@ -19,6 +19,12 @@ angular.module('hulkme.controllers', [])
         $rootScope.$broadcast('modal:'+ modalName +':opened', data);
     };
     
+    // if(user != undefined) {
+    //     $rootScope.loggedIn = true
+    //     
+    //     var authToken = authr.getToken();
+    //     $http.defaults.headers.common['Authorization'] = "Token " + user['userId'] + ":" + authToken;
+    // }
 }])
 ;
 

@@ -5,6 +5,15 @@
         ANZ Hackathon 2016
       </a>
       <a ui-sref="home.index" class="item">Download</a>
-      <a ui-sref='admin.home' class="item">Admin</a>
+      <a ng-if="isLoggedIn" ui-sref='admin.home' class="item">File Management</a>
+      
+      <div class="right menu">
+        <div class="item" ng-if="!isLoggedIn">
+            <a ng-click="login()"><i class="user icon"></i> Sign-In</a>
+        </div>
+       <div class="item" ng-if="isLoggedIn">
+            <a ng-click="logout()"><i class="sign out icon"></i> Sign-Out</a>
+        </div>
+      </div>
     </div>
   </div>

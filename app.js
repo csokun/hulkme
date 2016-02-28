@@ -5,6 +5,7 @@
 var express = require('express'), 
     storage = require('./routes/Storage'), 
     media = require('./routes/Media'),
+    security = require('./routes/Security'),
     http = require('http'), 
     cfenv = require('cfenv');
 
@@ -30,6 +31,7 @@ if ('development' == app.get('env')) {
 
 app.use('/api', storage);
 app.use('/media', media);
+app.use('/auth', security);
 
 // get the app environment from Cloud Foundry
 var appEnv = cfenv.getAppEnv();

@@ -16,8 +16,6 @@ angular.module('hulkme.admin.directives', [])
         restrict: 'E',
         templateUrl: 'admin/views/hulk-me-confirm-delete-modal.html',
         link: function(scope) {
-            console.log('loaded confirm');
-
             $rootScope.$on('delete:confirm', function (event, data) {
                 scope.file = data.file;
                 // activate modal

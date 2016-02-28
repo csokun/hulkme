@@ -5,10 +5,15 @@ var express = require('express'),
     cfenv = require('cfenv'),
     router = express.Router();
 
-router.get('/auth', jwt({secret: 'shhhhhhared-secret'}), function(req, res) {
-    if (!req.user.admin) return res.sendStatus(401);
-    res.sendStatus(200);
-  });
-  
+// router.get('/auth', jwt({secret: 'shhhhhhared-secret'}), function(req, res) {
+//     if (!req.user.admin) return res.sendStatus(401);
+//     res.sendStatus(200);
+//   });
+
+router.get('/secret', function (req, res, next) {
+    res.send({secret: cfenv.getAppEnv('secret') });
+    next();
+});
+
 module.exports = router;
   
