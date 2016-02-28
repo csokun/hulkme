@@ -12,7 +12,7 @@ var getFile = function (req, res, next){
             request.get(url)
             .on('response', function(response) {
                 response.headers['content-type'] = doc.fileType;
-                response.headers['content-disposition'] = "attachment;  filename=" + doc.fileName;
+                response.headers['content-disposition'] = "attachment;  filename=\"" + encodeURIComponent(doc.fileName) + "\"";
             })
             .pipe(res);
         } else {
