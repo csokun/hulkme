@@ -11,7 +11,7 @@ var express = require('express'),
 //   });
 
 router.get('/secret', function (req, res, next) {
-    res.send({secret: cfenv.getAppEnv('secret') });
+    res.send({secret: cfenv.getEnvVar('secret') });
     next();
 });
 
