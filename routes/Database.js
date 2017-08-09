@@ -16,11 +16,11 @@ if(process.env.VCAP_SERVICES) {
     }
 } else{
     var config = require('../config.json');
-    dbCredentials.host = config.cloudant.host;// "df4edac6-909a-488f-b010-4d90648cd343-bluemix.cloudant.com";
+    dbCredentials.host = config.cloudant.host;
     dbCredentials.port = 443;
-    dbCredentials.user = config.cloudant.user;//"df4edac6-909a-488f-b010-4d90648cd343-bluemix";
-    dbCredentials.password = config.cloudant.password;// "784cc43f09ec3981ebff5f01f2ae4a5ea54795ce2557d8c7a0cee2f8671ded6f";
-    dbCredentials.url = config.cloudant.url;// "https://df4edac6-909a-488f-b010-4d90648cd343-bluemix:784cc43f09ec3981ebff5f01f2ae4a5ea54795ce2557d8c7a0cee2f8671ded6f@df4edac6-909a-488f-b010-4d90648cd343-bluemix.cloudant.com";
+    dbCredentials.user = config.cloudant.user;
+    dbCredentials.password = config.cloudant.password;
+    dbCredentials.url = config.cloudant.url;
 }
 
 var cloudant = require('cloudant')(dbCredentials.url);
