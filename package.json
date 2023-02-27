@@ -1,5 +1,5 @@
 {
-  "name": "Hulkme",
+  "name": "hulkme",
   "version": "0.0.1",
   "description": "Simple file sharing build with nodejs + cloudant",
   "scripts": {
@@ -8,23 +8,23 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "1.13.2",
-    "bower": "^1.4.1",
-    "cfenv": "1.0.x",
+    "body-parser": "^1.20.2",
+    "bower": "^1.8.14",
+    "cfenv": "^1.2.4",
     "cloudant": "*",
-    "connect-multiparty": "1.2.5",
-    "errorhandler": "1.4.1",
-    "express": "4.12.x",
-    "express-jwt": "^3.3.0",
-    "fs-sync": "^1.0.2",
-    "jsonwebtoken": "^5.7.0",
-    "method-override": "2.3.3",
-    "morgan": "1.6.1",
+    "connect-multiparty": "^2.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "fs-sync": "^1.0.6",
+    "jsonwebtoken": "^9.0.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
     "properties-parser": "^0.3.1",
-    "request": "^2.69.0"
+    "request": "^2.88.2"
   },
   "repository": {},
   "engines": {
-    "node": "0.12.x"
+    "node": "18.0.x"
   }
 }
